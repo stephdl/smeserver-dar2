@@ -1,0 +1,8 @@
+{
+    $Verbose = $props{"Verbose"} || "";
+
+    if ("$Verbose" eq "on")
+	{
+	$OUT .= "--verbose\n";
+	}
+}

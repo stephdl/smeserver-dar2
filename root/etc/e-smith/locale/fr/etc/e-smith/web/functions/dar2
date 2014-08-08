@@ -1,0 +1,187 @@
+<lexicon lang="fr">
+    <entry>
+        <base>FORM_TITLE</base>
+        <trans>Disque d'archives</trans>
+    </entry>
+    <entry>
+        <base>FORM_DESCRIPTION</base>
+        <trans><![CDATA[ <p>Use this panel to define, schedule and launch server backups and restores, to and from network shares or an attached local disk.</p> <p><a class="button-like" href="dar2?page=0&page_stack=&Next=Next&wherenext=DAR2_PAGE_CREATE">Create backup job</a></p> ]]></trans>
+    </entry>
+    <entry>
+        <base>NO_BACKUP_JOBS</base>
+        <trans>Il n'y a actuellement aucune tâche de sauvegarde sur ce système.</trans>
+    </entry>
+    <entry>
+        <base>MODIFY</base>
+        <trans>Voir/Modifier</trans>
+    </entry>
+    <entry>
+        <base>CREATE_TITLE</base>
+        <trans>Créer une tâche de sauvegarde</trans>
+    </entry>
+    <entry>
+        <base>MODIFY_TITLE</base>
+        <trans>Modifier la tâche de sauvegarde</trans>
+    </entry>
+    <entry>
+        <base>RESTORE_TITLE</base>
+        <trans>Restaurer une tâche de sauvegarde</trans>
+    </entry>
+    <entry>
+        <base>BACKUP_TITLE</base>
+        <trans>Lancer la tâche de sauvegarde</trans>
+    </entry>
+    <entry>
+        <base>REMOVE_TITLE</base>
+        <trans>Supprimer la tâche de sauvegarde</trans>
+    </entry>
+    <entry>
+            <base>JOBNAME</base>
+            <trans>Nom de la tâche</trans>
+    </entry>
+    <entry>
+            <base>BACKUP</base>
+            <trans>Sélections de sauvegarde</trans>
+    </entry>
+    <entry>
+            <base>EXCLUDE</base>
+            <trans>Exclure les fichiers</trans>
+    </entry>
+    <entry>
+            <base>PRUNE</base>
+            <trans>Elaguer les dossiers</trans>
+    </entry>
+    <entry>
+            <base>TARGET</base>
+            <trans>Cible</trans>
+    </entry>
+    <entry>
+            <base>SLICE</base>
+            <trans>Taille des segments</trans>
+    </entry>
+    <entry>
+            <base>VFSTYPE</base>
+            <trans>Système de fichiers</trans>
+    </entry>
+    
+    <entry>
+            <base>COMPRESSION</base>
+            <trans>Compression</trans>
+    </entry>
+    <entry>
+            <base>USERNAME</base>
+            <trans>Nom d'utilisateur</trans>
+    </entry>
+    <entry>
+            <base>EXPIRY</base>
+            <trans>Expiration</trans>
+    </entry>
+    <entry>
+            <base>VERBOSE</base>
+            <trans>Rapport détaillé</trans>
+    </entry>
+    <entry>
+            <base>BACKUP_DAY</base>
+            <trans>Jour de sauvegarde</trans>
+    </entry>
+    <entry>
+            <base>BACKUP_TIME</base>
+            <trans>Heure de sauvegarde</trans>
+    </entry>
+    <entry>
+            <base>LOCALDRIVE</base>
+            <trans>Disque local</trans>
+    </entry>
+    <entry>
+            <base>MOUNTED</base>
+            <trans>Monté</trans>
+    </entry>
+    <entry>
+            <base>NETWORKSHARE</base>
+            <trans>Partage réseau</trans>
+    </entry>
+    <entry>
+            <base>UNMOUNTED</base>
+            <trans>Non monté</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_RESTORE_DATE</base>
+        <trans>Saisissez la date de l'archive depuis laquelle vous souhaitez effectuer la restauration. Format : [ aaaa.mm.jj ]</trans>
+    </entry>
+    <entry>
+            <base>RESTORE_DATE</base>
+            <trans>Date</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_RESTORE_DR</base>
+        <trans><![CDATA[ <P>To perform a full disaster recovery restore set the following:</P> <P><B>Disaster Recovery</B> [ Enabled ] <B>Restore</B> [ *.* ] <B>Restore to</B> [ / ]</P> <P>Note: After completion of a full disaster recovery restore, you will need to enter the server-manager <B>Reboot or shutdown</B> panel and <B>Reconfigure</B> your server.</P> <P>To perform a selective restore, enter one restore path per line. Paths must be relative. Example: To restore /root/contribs to the original location you would therefore enter:</P> <P><B>Disaster Recovery</B> [ Disabled ] <B>Restore</B> [ root/contribs ] <B>Restore to</B> [ / ]</P> ]]></trans>
+    </entry>
+    <entry>
+            <base>RESTORE_DR</base>
+            <trans>Restauration après sinistre</trans>
+    </entry>
+    <entry>
+            <base>RESTORE_RESTORETO</base>
+            <trans>Restaurer vers</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_JOBNAME</base>
+        <trans>Saisissez un nom unique pour la tâche de sauvegarde. Ce nom doit contenir que des lettres, chiffres, points, soulignements et tirets. Aucun espace.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_DESC</base>
+        <trans>Saisissez une description pour cette tâche de sauvegarde.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_DR</base>
+        <trans>Une tâche de récupération de désastre exécute quelques commandes complémentaires lors des processus de sauvegarde et de restauration. Si vous souhaitez réaliser une sauvegarde simple, merci de sélectionner désactivé.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_BACKUP</base>
+        <trans>Toutes les sauvegardes nécessaire à la réalisation  d'une restauration après sinistre sont pré sélectionnées ci-dessous. Attention les chemins absolus sont incorrects. Tous les chemins doivent être relatifs au dossier racine / .Exemple: [home] est relatif / correct, [/home] est absolu / incorrect. Si vous réalisez une sauvegarde standard, modifiez  les sélections à sauvegarder comme besoin ci-dessous. Une entrée par ligne. Ne pas utiliser [ /,/blah,proc,tmp,dev ].</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_EXCLUDE</base>
+        <trans>Renseignez tous fichiers à exclure. Par exemple: [ home/e-smith/files/ibays/nomdibay/files/document.doc ]. Une entrée par ligne. Les caractères joker * et ? sont autorisés.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_PRUNE</base>
+        <trans>Renseignez tout dossier à éliminer et à ne pas inclure dans la sauvegarde. Par exemple: [ home/e-smith/files/ibays/nomdibay ]. Une entrée par ligne. Les caractères jokers * et ? sont autorisés.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_TARGET</base>
+        <trans><![CDATA[ <P>Valid targets are an attached local drive or network share.</P> <P>If backing up to an attached local drive, enter the target mount point of your drive. Example: [/media/usbdisk]. Leave the username and password fields blank.</P> <P>If backing up to a network share, enter the target in UNC format. Example: [//computername/sharename]. In addition you must enter a valid username/password that is a local account on the target with full access rights to the share.</P> ]]></trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_VFSTYPE</base>
+        <trans>Trois système de fichier sont supportés. [ext3] pour les sauvegardes sur disque local. [smfs] pour les sauvegardes sur un poste de travail Windows ou sur un partage réseau SME Server. [cifs] pour les sauvegardes vers un serveur Microsoft Windows. NB : Si vous utilisez le système cifs, la cible saisie ci-dessus doit inclure l'adresse IP. Exemple : [//10.1.1.1/nom_du_partage].</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_SLICE</base>
+        <trans>Saisissez la taille des segments en megabytes. PAr exemple pour creer un segment de 650 MB pour copier sur un CD-R/RW vous devrez saisir [ 650]. Ceci créera des fichiers cibles au format suivant:job.aaaa.mm.jj.1.dar, job.aaaa.mm.jj.2.dar, etc. A noter que la taille maximum par segment est de 2000MB. La taille maximal de la sauvegarde est limitée seulement par l'espace disponible sur l'espace cible.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_COMPRESSION</base>
+        <trans>Saisissez le taux de compression de 0 (aucune) à 9 (maximum). L'absence de compression améliore significativement la vitesse de sauvegarde.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_U_P</base>
+        <trans>Si vous sauvegardez sur un partage sur le réseau, saisissez un couple utilisateur / mot de passe valide qui correspond à un compte local sur la cible avec tous les droits sur le partage. Laissez le nom d'utilisateur et le mot de passe vides si vous sauvegardez sur un disque local.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_EXPIRY</base>
+        <trans>Saisissez une temps d'expiration. Ceci conservera les sauvegardes sur la cible pour n jours. Choisir 0 revient à dire que les sauvegardes seront écrasées chaque jour.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_VERBOSE</base>
+        <trans>L'option rapport détaillé influe sur les détails affichés. [ On ] pour un rapport complet fichier par fichier avec génération d'un fichier de log. [ Off ] pour un résumé et pas de génération de long fichier de log. A noter que si l'option est activée la taille du fichier de log généré est proportionnel à la taille de la sauvegarde réalisée et peut donc devenir très grosse! Les tâches programmées recevront un courriel de rapport sur le compte admin.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_BACKUP_DAY</base>
+        <trans>Saisissez le jour  où vous désirez voir cette sauvegarde se réaliser. Laissez à manuel pour une sauvegarde non programmée à utilisation manuelle.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_BACKUP_TIME</base>
+        <trans>Saisissez lh'eure à laquelle vous voulez réaliser cette sauvegarde au format horaire 0-24 (hh:mm).</trans>
+    </entry>
+</lexicon>

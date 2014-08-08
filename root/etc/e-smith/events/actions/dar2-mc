@@ -1,0 +1,66 @@
+#!/bin/sh
+
+# install dar support into Midnight Commander
+if [ ! -e /usr/share/mc/extfs/udar ]
+    then
+    cp -af /opt/dar2-mc/udar /usr/share/mc/extfs
+    cp -af /opt/dar2-mc/extfs.ini /usr/share/mc/extfs
+    cp -af /opt/dar2-mc/mc.ext /usr/share/mc
+fi
+
+# Prompt for job name
+clear
+/bin/echo "Enter your job name:"
+read DCF
+
+# Check job status
+STATUS=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF status)
+if [ "$STATUS" != 'enabled' ]
+    then
+        exit 0
+fi
+
+# variables
+DAR="/usr/bin/dar"
+ID=$(/sbin/e-smith/config get SystemName).$(/sbin/e-smith/config get DomainName)
+MOUNT=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF Mount)
+TARGET=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF Target)
+USERNAME=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF Username)
+PASSWORD=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF Password)
+VFSTYPE=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF VFSType)
+
+/bin/umount $MOUNT >/dev/null 2>&1
+
+# mount 
+if [ "$MOUNT" == "/mnt/dar2" ]
+    then
+        MOUNT=$MOUNT/$DCF
+        # create mount dir
+        if [ ! -d $MOUNT ]
+            then
+                /bin/echo "Creating $MOUNT dir"
+                /bin/mkdir -p $MOUNT || exit 1
+        fi
+        /bin/echo "Connecting $MOUNT to $TARGET. Please wait..."
+        /bin/mount -t $VFSTYPE -o username=$USERNAME,password=$PASSWORD $TARGET $MOUNT || exit 2
+     else
+        /bin/echo "Connecting to $MOUNT. Please wait..."
+        /bin/mount $MOUNT || exit 3
+fi
+
+# check backup dir
+if [ ! -d $MOUNT/$ID/$DCF ]
+    then
+        /bin/echo "Error locating /$ID/$DCF dir"
+        exit 4
+fi
+
+# run Midnight Commander
+/bin/echo "Launching Midnight Commander"
+mc $MOUNT/$ID/$DCF
+
+# dismount
+/bin/echo "Dismounting $MOUNT"
+/bin/umount -l $MOUNT &
+
+exit 5

@@ -1,0 +1,35 @@
+{
+# --------------------------------------------------------------------
+# This script builds the /etc/crontab entries for each dar2 job
+#
+# Copyright (C) 2003-2006 Darrell May <dmay@myezserver.com>
+# --------------------------------------------------------------------
+
+# Retrieve dar2 db entries
+my $db = esmith::ConfigDB->open_ro("dar2");
+
+# create /etc/crontab line entry for each dar2 job
+my @dar2 = $db->get_all_by_prop(type => 'dar2');
+
+$OUT .= "\n";
+$OUT .= "# dar2\n";
+
+foreach my $dar2 (@dar2)
+    {
+    my $BackupJob = $dar2->key;
+    my $rec = $db->get("$BackupJob");
+    my $backupDay = $rec->prop("backupDay");
+    my $backupTime = $rec->prop("backupTime");
+    my ($backupHour, $backupMin) = split (":", $backupTime, -1);
+
+    # remove leading zeros from minutes
+    $backupMin =~ s/00/0/;
+
+    if ("$backupDay" ne "manual")
+	{
+	    $OUT .=
+        	"$backupMin $backupHour * * $backupDay root"
+	        . " /etc/e-smith/events/actions/dar2-backup $BackupJob\n";
+	}
+    }
+}

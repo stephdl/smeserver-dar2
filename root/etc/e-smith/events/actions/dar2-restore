@@ -1,0 +1,92 @@
+#!/bin/sh
+
+if [ ! -z "$1" ]
+    then
+        DCF=$1
+    else
+        /bin/echo "Syntax incorrect! Usage: dar2-restore dcf"
+        exit 0
+fi
+
+STATUS=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF status)
+if [ "$STATUS" != 'enabled' ]
+    then
+        exit 1
+fi
+
+STIME=$(/bin/date)
+DAR="/usr/bin/dar"
+
+# Backup variables
+ID=$(/sbin/e-smith/config get SystemName).$(/sbin/e-smith/config get DomainName)
+MOUNT=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF Mount)
+TARGET=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF Target)
+USERNAME=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF Username)
+PASSWORD=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF Password)
+VFSTYPE=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF VFSType)
+
+# Restore variables
+DATE=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop Restore.$DCF Date)
+DR=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop Restore.$DCF DR)
+RESTORETO=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop Restore.$DCF RestoreTo)
+
+/bin/umount $MOUNT >/dev/null 2>&1
+
+# mount 
+if [ "$MOUNT" == "/mnt/dar2" ]
+    then
+        MOUNT=$MOUNT/$DCF
+        # create mount dir
+        if [ ! -d $MOUNT ]
+            then
+                /bin/echo "Creating $MOUNT dir"
+                /bin/mkdir -p $MOUNT || exit 2
+        fi
+        /bin/echo "Connecting $MOUNT to $TARGET"
+        /bin/mount -t $VFSTYPE -o username=$USERNAME,password=$PASSWORD $TARGET $MOUNT || exit 3
+     else
+        /bin/echo "Connecting to $MOUNT"
+        /bin/mount $MOUNT || exit 4
+fi
+
+# expand job template
+/bin/echo "Expanding /etc/dar2/$DCF template"
+if [ -e "/etc/dar2/$DCF" ]
+   then
+        /bin/rm -f /etc/dar2/$DCF || exit 5
+fi
+/sbin/e-smith/expand-template /etc/dar2/dar2-restore $DCF ; /bin/mv /etc/dar2/dar2-restore /etc/dar2/$DCF || exit 6
+
+# check backup dir
+if [ ! -d $MOUNT/$ID/$DCF ]
+    then
+        /bin/echo "Error locating /$ID/$DCF dir"
+        exit 7
+fi
+
+# execute pre-restore event
+if [ "$DR" == "Enabled" ]
+    then
+    /bin/echo "Executing pre-restore event"
+    /sbin/e-smith/signal-event pre-restore || exit 8
+fi
+
+# perform dar restore
+/bin/echo "Performing $DCF restore"
+$DAR -x $MOUNT/$ID/$DCF/$DATE -B /etc/dar2/$DCF || exit 9
+
+# dismount
+/bin/echo "Dismounting $MOUNT"
+/bin/umount -l $MOUNT &
+
+FTIME=$(/bin/date)
+
+/bin/echo "$STIME - restore started"
+/bin/echo "$FTIME - restore finished"
+
+if [ "$DR" == "Enabled" ]
+    then
+	/bin/echo "To finish your disaster recovery restore, please run:"
+        /bin/echo ""
+        /bin/echo "signal-event post-upgrade ; signal-event reboot"
+fi

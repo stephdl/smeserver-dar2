@@ -1,0 +1,5 @@
+{
+    $Slice = $props{"Slice"} || "";
+
+    $OUT .= "--slice $Slice" . "M\n";
+}

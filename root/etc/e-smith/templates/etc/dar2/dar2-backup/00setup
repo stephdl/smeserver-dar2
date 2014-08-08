@@ -1,0 +1,13 @@
+{
+    $Job = $ARGV [1];
+    die "job name missing" unless defined ($Job);
+
+    use esmith::ConfigDB;
+    $db = esmith::ConfigDB->open_ro("dar2") or die "Couldn't open dar2";
+
+    $rec = $db->get("$Job") or die "No backup job $Job in dar2";
+
+    %props = $rec->props;
+
+    $OUT = '';
+}

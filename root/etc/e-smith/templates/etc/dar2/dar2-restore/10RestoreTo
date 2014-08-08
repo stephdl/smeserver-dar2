@@ -1,0 +1,5 @@
+{
+    $RestoreTo = $rprops{"RestoreTo"} || "error";
+
+    $OUT .= "--fs-root \"$RestoreTo\"\n";
+}

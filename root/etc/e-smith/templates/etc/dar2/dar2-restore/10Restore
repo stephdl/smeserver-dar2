@@ -1,0 +1,22 @@
+{
+    $Restore = $rprops{"Restore"} || "";
+    @Restore = split(/,/, "$Restore");
+
+    $Backup = $bprops{"Backup"} || "";
+    @Backup = split(/,/, "$Backup");
+
+    if ("$Restore" eq "*.*")
+	{
+        foreach $Backup (@Backup)
+                {
+                $OUT .= "--go-into \"$Backup\"\n";
+                }
+	}
+	else
+	{
+	foreach $Restore (@Restore)
+        	{
+	        $OUT .= "--go-into \"$Restore\"\n";
+        	}
+	}
+}

@@ -1,0 +1,438 @@
+#!/usr/bin/perl -wT
+# vim: ft=xml:
+
+#----------------------------------------------------------------------
+# heading     : Backup
+# description : Disk ARchive
+# navigation  : 1000 1000
+#----------------------------------------------------------------------
+
+use strict;
+use warnings;
+
+use esmith::FormMagick::Panel::dar2;
+
+my $f = esmith::FormMagick::Panel::dar2->new();
+$f->display();
+
+__DATA__
+<form
+    title="FORM_TITLE"
+    header="/etc/e-smith/web/common/head.tmpl"
+    footer="/etc/e-smith/web/common/foot.tmpl">
+
+    <page name="First" pre-event="print_status_message()">
+
+        <description>FORM_DESCRIPTION</description>
+
+        <subroutine src="print_backup_jobs_table()" />
+    </page>
+
+    <page name="DAR2_PAGE_CREATE"
+            pre-event="turn_off_buttons()"
+            post-event="create_modify_backup" >
+
+        <description>CREATE_TITLE</description>
+
+        <field
+            type="text"
+            id="jobname"
+            size="25"
+	    value=""
+            validation="nonblank">
+            <label>JOBNAME</label>
+            <description>DESCRIPTION_JOBNAME</description>
+        </field>
+
+        <field
+            type="text"
+            id="description"
+            size="50"
+	    value=""
+            validation="nonblank">
+            <label>DESCRIPTION</label>
+            <description>DESCRIPTION_DESC</description>	    
+        </field>
+
+        <field
+            type="textarea"
+            id="backup"
+	    value="get_drbackup()"
+            validation="nonblank">
+            <label>BACKUP</label>
+	    <description>DESCRIPTION_BACKUP</description>	    
+        </field>
+
+        <field
+            type="textarea"
+            id="prune"
+            value=""
+            validation="">
+            <label>PRUNE</label>
+            <description>DESCRIPTION_PRUNE</description>
+        </field>
+
+        <field
+	    type="textarea"
+            id="exclude"
+	    value=""
+            validation="">
+            <label>EXCLUDE</label>
+	    <description>DESCRIPTION_EXCLUDE</description>	    
+        </field>
+
+        <field
+            type="text"
+            id="target"
+	    size="50"
+	    value=""
+            validation="">
+            <label>TARGET</label>
+	    <description>DESCRIPTION_TARGET</description>	    
+        </field>
+
+        <field
+            type="text"
+            id="username"
+	    size="25"
+	    value=""
+            validation="">
+            <label>USERNAME</label>
+        </field>
+
+        <field
+            type="text"
+            id="password"
+	    size="25"
+	    value=""
+            validation="">
+            <label>PASSWORD</label>
+        </field>	
+
+        <field
+            type="select"
+            id="vfstype"
+            options="'cifs'  => 'cifs',
+	             'ext3'  => 'ext3',
+	             'smbfs' => 'smbfs'"
+            value="smbfs"
+            validation="nonblank">
+            <label>VFSTYPE</label>
+	    <description>DESCRIPTION_VFSTYPE</description>	    
+        </field>
+
+        <field
+            type="text"
+            id="slice"
+	    size="3"
+	    value="650"
+            validation="zero_or_positive()">
+            <label>SLICE</label>
+	    <description>DESCRIPTION_SLICE</description>	    
+        </field>
+
+        <field
+            type="select"
+            id="compression"
+            options="0,1,2,3,4,5,6,7,8,9"
+	    value="0"
+            validation="zero_or_positive()">
+            <label>COMPRESSION</label>
+	    <description>DESCRIPTION_COMPRESSION</description>	    
+        </field>
+
+        <field
+            type="text"
+            id="expiry"
+	    size="3"
+	    value="0"
+            validation="zero_or_positive()">	    
+            <label>EXPIRY</label>
+	    <description>DESCRIPTION_EXPIRY</description>	    
+        </field>
+
+        <field
+            type="select"
+            id="verbose"
+            options="'on','off'"
+            value="off"
+            validation="nonblank">
+            <label>VERBOSE</label>
+            <description>DESCRIPTION_VERBOSE</description>
+        </field>
+
+        <field
+            type="select"
+            id="backupday"
+            options="'manual','*','MON','TUE','WED','THU','FRI','SAT','SUN'"
+	    value="manual"
+            validation="nonblank">
+            <label>BACKUP_DAY</label>
+	    <description>DESCRIPTION_BACKUP_DAY</description>	    
+        </field>
+
+        <field
+            type="text"
+            id="backuptime"
+            size="5"
+            value="23:30"
+            validation="">
+            <label>BACKUP_TIME</label>
+            <description>DESCRIPTION_BACKUP_TIME</description>
+        </field>
+
+        <subroutine src="print_button('SAVE')" />
+    </page>
+
+    <page name="DAR2_PAGE_MODIFY"
+            pre-event="turn_off_buttons()"
+            post-event="create_modify_backup" >
+
+        <description>MODIFY_TITLE</description>
+
+        <field
+            type="literal"
+            id="jobname">
+            <label>JOBNAME</label>
+        </field>
+
+        <field
+            type="text"
+            id="description"
+            size="50"
+	    value="get_description_value()"
+            validation="nonblank">
+            <label>DESCRIPTION</label>
+        </field>
+
+        <field
+            type="textarea"
+            id="backup"
+	    value="get_backup_value()"
+            validation="nonblank">
+            <label>BACKUP</label>
+        </field>
+
+        <field
+            type="textarea"
+            id="prune"
+            value="get_prune_value()"
+            validation="">
+            <label>PRUNE</label>
+        </field>
+
+        <field
+	    type="textarea"
+            id="exclude"
+	    value="get_exclude_value()"
+            validation="">
+            <label>EXCLUDE</label>
+        </field>
+
+
+        <field
+            type="text"
+            id="target"
+	    size="50"
+	    value="get_target_value()"
+            validation="">
+            <label>TARGET</label>
+        </field>
+
+        <field
+            type="text"
+            id="username"
+	    size="25"
+	    value="get_username_value()"
+            validation="">
+            <label>USERNAME</label>
+        </field>
+
+        <field
+            type="text"
+            id="password"
+	    size="25"
+	    value="get_password_value()"
+            validation="">
+            <label>PASSWORD</label>
+        </field>	
+
+        <field
+            type="select"
+            id="vfstype"
+            options="'cifs'  => 'cifs',
+	             'ext3'  => 'ext3',
+	             'smbfs' => 'smbfs'"
+            value="get_vfstype_value()"
+            validation="nonblank">
+            <label>VFSTYPE</label>
+        </field>
+
+        <field
+            type="text"
+            id="slice"
+	    size="3"
+	    value="get_slice_value()"
+            validation="zero_or_positive()">
+            <label>SLICE</label>
+        </field>
+
+        <field
+            type="select"
+            id="compression"
+            options="0,1,2,3,4,5,6,7,8,9"
+	    value="get_compression_value()"
+            validation="zero_or_positive()">
+            <label>COMPRESSION</label>
+        </field>
+
+        <field
+            type="text"
+            id="expiry"
+	    size="3"
+	    value="get_expiry_value()"
+            validation="zero_or_positive()">	    
+            <label>EXPIRY</label>
+        </field>
+
+        <field
+            type="select"
+            id="verbose"
+            options="'on','off'"
+            value="get_verbose_value()"
+            validation="nonblank">
+            <label>VERBOSE</label>
+        </field>
+
+        <field
+            type="select"
+            id="backupday"
+            options="'manual','*','MON','TUE','WED','THU','FRI','SAT','SUN'"
+	    value="get_backupday_value()"
+            validation="nonblank">
+            <label>BACKUP_DAY</label>
+        </field>
+
+        <field
+            type="text"
+            id="backuptime"
+            size="5"
+	    value="get_backuptime_value()"
+            validation="nonblank">
+            <label>BACKUP_TIME</label>
+        </field>
+
+        <subroutine src="print_button('SAVE')" />
+    </page>
+
+    <page name="DAR2_PAGE_RESTORE"
+            pre-event="turn_off_buttons()"
+            post-event="restore_backup" >
+
+        <description>RESTORE_TITLE</description>
+
+        <field
+            type="literal"
+            id="jobname">
+            <label>JOBNAME</label>
+        </field>
+
+        <field
+            type="text"
+            id="date"
+            size="10"
+            value=""
+            validation="nonblank">
+            <label>RESTORE_DATE</label>
+	    <description>DESCRIPTION_RESTORE_DATE</description>
+        </field>
+
+        <field
+            type="select"
+            id="dr"
+            options="'Enabled','Disabled'"
+            value="Disabled"
+            validation="nonblank">
+            <label>RESTORE_DR</label>
+            <description>DESCRIPTION_RESTORE_DR</description>
+        </field>
+
+        <field
+            type="textarea"
+            id="restore"
+            value=""
+            validation="nonblank">
+            <label>RESTORE</label>
+        </field>
+
+        <field
+            type="text"
+            id="restoreto"
+            size="25"
+            value=""
+            validation="nonblank">
+            <label>RESTORE_RESTORETO</label>
+        </field>
+
+        <subroutine src="print_button('PERFORM')" />
+    </page>
+
+    <page name="DAR2_PAGE_BACKUP"
+            pre-event="turn_off_buttons()"
+            post-event="perform_backup" >
+
+        <description>BACKUP_TITLE</description>
+
+        <field
+            type="literal"
+            id="jobname">
+            <label>JOBNAME</label>
+        </field>
+
+        <field
+            type="literal"
+            id="description"
+	    value="get_description_value()">
+            <label>DESCRIPTION</label>
+        </field>
+
+        <field
+            type="literal"
+            id="target"
+	    value="get_target_value()">
+            <label>TARGET</label>
+        </field>
+
+        <subroutine src="print_button('PERFORM')" />
+    </page>
+
+    <page name="DAR2_PAGE_REMOVE"
+            pre-event="turn_off_buttons()"
+            post-event="remove_backup" >
+
+        <description>REMOVE_TITLE</description>
+
+        <field
+            type="literal"
+            id="jobname">
+            <label>JOBNAME</label>
+        </field>
+
+        <field
+            type="literal"
+            id="description"
+	    value="get_description_value()">
+            <label>DESCRIPTION</label>
+        </field>
+
+        <field
+            type="literal"
+            id="target"
+	    value="get_target_value()">
+            <label>TARGET</label>
+        </field>
+
+        <subroutine src="print_button('PERFORM')" />
+    </page>
+
+</form>

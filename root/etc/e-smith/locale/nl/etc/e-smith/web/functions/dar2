@@ -1,0 +1,187 @@
+<lexicon lang="nl">
+    <entry>
+        <base>FORM_TITLE</base>
+        <trans>Disk ARchive</trans>
+    </entry>
+    <entry>
+        <base>FORM_DESCRIPTION</base>
+        <trans><![CDATA[ <p>Use this panel to define, schedule and launch server backups and restores, to and from network shares or an attached local disk.</p> <p><a class="button-like" href="dar2?page=0&page_stack=&Next=Next&wherenext=DAR2_PAGE_CREATE">Create backup job</a></p> ]]></trans>
+    </entry>
+    <entry>
+        <base>NO_BACKUP_JOBS</base>
+        <trans>Er zijn geen back-up taken in het systeem.</trans>
+    </entry>
+    <entry>
+        <base>MODIFY</base>
+        <trans>Bekijken/Wijzigen</trans>
+    </entry>
+    <entry>
+        <base>CREATE_TITLE</base>
+        <trans>Back-up taak aanmaken</trans>
+    </entry>
+    <entry>
+        <base>MODIFY_TITLE</base>
+        <trans>Back-up taak wijzigen</trans>
+    </entry>
+    <entry>
+        <base>RESTORE_TITLE</base>
+        <trans>Back-up taak herstellen</trans>
+    </entry>
+    <entry>
+        <base>BACKUP_TITLE</base>
+        <trans>Back-up taak starten</trans>
+    </entry>
+    <entry>
+        <base>REMOVE_TITLE</base>
+        <trans>Back-up taak verwijderen</trans>
+    </entry>
+    <entry>
+            <base>JOBNAME</base>
+            <trans>Taak naam</trans>
+    </entry>
+    <entry>
+            <base>BACKUP</base>
+            <trans>Backup selecties</trans>
+    </entry>
+    <entry>
+            <base>EXCLUDE</base>
+            <trans>Negeer bestanden</trans>
+    </entry>
+    <entry>
+            <base>PRUNE</base>
+            <trans>Negeer mappen</trans>
+    </entry>
+    <entry>
+            <base>TARGET</base>
+            <trans>Doel</trans>
+    </entry>
+    <entry>
+            <base>SLICE</base>
+            <trans>Deel grootte</trans>
+    </entry>
+    <entry>
+            <base>VFSTYPE</base>
+            <trans>Bestandssysteem</trans>
+    </entry>
+    
+    <entry>
+            <base>COMPRESSION</base>
+            <trans>Compressie</trans>
+    </entry>
+    <entry>
+            <base>USERNAME</base>
+            <trans>Gebruikersnaam</trans>
+    </entry>
+    <entry>
+            <base>EXPIRY</base>
+            <trans>Verlopen</trans>
+    </entry>
+    <entry>
+            <base>VERBOSE</base>
+            <trans>Uitgebreid</trans>
+    </entry>
+    <entry>
+            <base>BACKUP_DAY</base>
+            <trans>Back-up dag</trans>
+    </entry>
+    <entry>
+            <base>BACKUP_TIME</base>
+            <trans>Back-up tijd</trans>
+    </entry>
+    <entry>
+            <base>LOCALDRIVE</base>
+            <trans>Lokaal schijfstation</trans>
+    </entry>
+    <entry>
+            <base>MOUNTED</base>
+            <trans>Aangesloten</trans>
+    </entry>
+    <entry>
+            <base>NETWORKSHARE</base>
+            <trans>Netwerk schijfstation</trans>
+    </entry>
+    <entry>
+            <base>UNMOUNTED</base>
+            <trans>Ontkoppeld</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_RESTORE_DATE</base>
+        <trans>Voer de datum in van het archief dat u wilt herstellen. Formaat: [ jjjj.mm.dd ]</trans>
+    </entry>
+    <entry>
+            <base>RESTORE_DATE</base>
+            <trans>Datum</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_RESTORE_DR</base>
+        <trans><![CDATA[ <P>To perform a full disaster recovery restore set the following:</P> <P><B>Disaster Recovery</B> [ Enabled ] <B>Restore</B> [ *.* ] <B>Restore to</B> [ / ]</P> <P>Note: After completion of a full disaster recovery restore, you will need to enter the server-manager <B>Reboot or shutdown</B> panel and <B>Reconfigure</B> your server.</P> <P>To perform a selective restore, enter one restore path per line. Paths must be relative. Example: To restore /root/contribs to the original location you would therefore enter:</P> <P><B>Disaster Recovery</B> [ Disabled ] <B>Restore</B> [ root/contribs ] <B>Restore to</B> [ / ]</P> ]]></trans>
+    </entry>
+    <entry>
+            <base>RESTORE_DR</base>
+            <trans>Ramp herstel</trans>
+    </entry>
+    <entry>
+            <base>RESTORE_RESTORETO</base>
+            <trans>Herstellen naar</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_JOBNAME</base>
+        <trans>Voer een unieke back-up taaknaam in. De naam mag alleen letters, cijfers, punten, koppeltekens en lage streepjes bevatten. Geen spaties.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_DESC</base>
+        <trans>Voer een beschrijving in voor deze back-up taak.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_DR</base>
+        <trans>Een Ramp Herstel back-up taak voert additionele systeemtaken uit gedurende back-up en herstel gebeurtenissen. Zet dit alstublieft op Uit als u een standaard back-up uitvoerd.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_BACKUP</base>
+        <trans>Alle back-up selecties die benodigd zijn voor een ramp herstel zijn hieronder reeds geselecteerd. Merk op dat absolute paden ongeldig zijn. Alle paden moeten relatief zijn aan de basis / map. Bijvoorbeeld: [home] is relatief en correct, [/home] is absoluut en incorrect. Als u een standaard back-up uitvoert, kunt u de onderstaande back-up selecties naar believen wijzigen. Een opgave per regel. Voer niet [ /, /blah, proc, tmp ] in.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_EXCLUDE</base>
+        <trans>Voer bestands uitzonderingen in. Bijvoorbeeld: [ home/e-smith/files/ibays/ibayname/files/document.doc ]. Een opgave per regel. Wildcard tekens * en ? kunnen gebruikt worden.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_PRUNE</base>
+        <trans>Voor te snoeien mapnamen in die niet in the back-up opgenomen worden. Bijvoorbeeld: [ home/e-smith/files/ibays/ibaainaam ]. Een opgave per regel. Wildcards tekens * en ? zijn geldig.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_TARGET</base>
+        <trans><![CDATA[ <P>Valid targets are an attached local drive or network share.</P> <P>If backing up to an attached local drive, enter the target mount point of your drive. Example: [/media/usbdisk]. Leave the username and password fields blank.</P> <P>If backing up to a network share, enter the target in UNC format. Example: [//computername/sharename]. In addition you must enter a valid username/password that is a local account on the target with full access rights to the share.</P> ]]></trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_VFSTYPE</base>
+        <trans>Drie bestandssystemen worden ondersteund. [ext3] voor back-up naar een vast schijfstation. [smbfs] voor back-up naar een Windows werkstation en SME Server netwerk schijfstations. [cifs] voor back-up naar Microsoft Windows Server. Merk op dat by gebruik van cifs, de invoer hierboven een IP adres moet zijn. Bijvoorbeeld: [//10.1.1.1/sharenaam].</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_SLICE</base>
+        <trans>Voer de back-up volume segment grootte in megabytes in. Als u bijvoorbeeld volume segmenten wilt creëren die geschikt zijn om naar CDR/RW te kopiëren zou u [ 650 ] invoeren. Dit zou de doel bestanden creeren in het volgende formaat: taak.jjjj.mm.dd.1.dar, taak.jjjj.mm.dd.2.dar, enzovoort. Merk up dat de maximum segment grootte 2000MB is. Totale back-up taak grootte is alleen gelimiteerd door de beschikbare vrije ruimte op het doel schijfstation.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_COMPRESSION</base>
+        <trans>Voer het niveau van comprimeren in van 0 (geen) tot 9 (maximaal). Door geen compressie te gebruiken word de back-up snelheid dramatisch verbeterd.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_U_P</base>
+        <trans>Bij back-up naar een netwerk schijstation, moet u een gebruikersnaam en wachtwoord invoeren die geldig zijn voor het doel systeem en volledige toegangsrechten heeft of het netwerk schijfstation. Laat de gebruikersnaam en wachtwoord leeg als u een back-up uitvoert naar een lokaal schijfstation.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_EXPIRY</base>
+        <trans>Voer een back-up verval tijd in. Dit houdt back-ups op het doel systeem voor n dagen vast. Als u 0 kiest, betekend dit dat bestaande back-ups elke dag overschreven worden.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_VERBOSE</base>
+        <trans>De uitgebreid optie set de hoeveelheid detail in de uitvoer. Aan om een volledige bestandslijst en een logbestand te genereren. Uit om alleen samengevatte details te zien en geen logbestand te genereren. Merk op dat de grootte van uitvoer bestanden gerelateerd is aan de grootte van de back-up taak en daarom vrij groot kunnen worden! Uitgevoerde taken sturen een e-mail naar de admin gebruiker met taak details.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_BACKUP_DAY</base>
+        <trans>Voer de dag in waarop u deze back-up wilt laten uitvoeren. Laat op handmatig staan voor ongepland handmatig gebruik.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_BACKUP_TIME</base>
+        <trans>Voer de tijd in waarop u deze back-up wilt laten uitvoeren in 24 uurs formaat (uu:mm).</trans>
+    </entry>
+</lexicon>

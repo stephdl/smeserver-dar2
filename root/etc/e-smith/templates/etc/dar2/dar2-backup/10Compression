@@ -1,0 +1,35 @@
+{
+    my $Compression = $props{"Compression"} || "0";
+
+    if ("$Compression" != '0')
+        {
+        $OUT .= "--bzip2=$Compression\n";
+	$OUT .= <<EOF;
+--exclude-compression "*.asf"
+--exclude-compression "*.avi"
+--exclude-compression "*.bz2"
+--exclude-compression "*.bzip"
+--exclude-compression "*.bzip2"
+--exclude-compression "*.dar"
+--exclude-compression "*.divx"
+--exclude-compression "*.gif"
+--exclude-compression "*.gz"
+--exclude-compression "*.gzip"
+--exclude-compression "*.iso"
+--exclude-compression "*.jpeg"
+--exclude-compression "*.jpg"
+--exclude-compression "*.mp3"
+--exclude-compression "*.mpeg"
+--exclude-compression "*.mpg"
+--exclude-compression "*.png"
+--exclude-compression "*.ra"
+--exclude-compression "*.rar"
+--exclude-compression "*.rm"
+--exclude-compression "*.rpm"
+--exclude-compression "*.tgz"
+--exclude-compression "*.wma"
+--exclude-compression "*.wmv"
+--exclude-compression "*.zip"
+EOF
+    }
+}

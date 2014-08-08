@@ -1,0 +1,187 @@
+<lexicon lang="da">
+    <entry>
+        <base>FORM_TITLE</base>
+        <trans>Disk ARkiv</trans>
+    </entry>
+    <entry>
+        <base>FORM_DESCRIPTION</base>
+        <trans><![CDATA[ <p>Use this panel to define, schedule and launch server backups and restores, to and from network shares or an attached local disk.</p> <p><a class="button-like" href="dar2?page=0&page_stack=&Next=Next&wherenext=DAR2_PAGE_CREATE">Create backup job</a></p> ]]></trans>
+    </entry>
+    <entry>
+        <base>NO_BACKUP_JOBS</base>
+        <trans>Der er ingen sikkerhedskopi jobs i systemet.</trans>
+    </entry>
+    <entry>
+        <base>MODIFY</base>
+        <trans>Se/Rediger</trans>
+    </entry>
+    <entry>
+        <base>CREATE_TITLE</base>
+        <trans>Opret sikkerhedskopi job</trans>
+    </entry>
+    <entry>
+        <base>MODIFY_TITLE</base>
+        <trans>Rediger sikkerhedskopi job</trans>
+    </entry>
+    <entry>
+        <base>RESTORE_TITLE</base>
+        <trans>Gendan sikkerhedskopi job</trans>
+    </entry>
+    <entry>
+        <base>BACKUP_TITLE</base>
+        <trans>Start sikkerhedskopi job</trans>
+    </entry>
+    <entry>
+        <base>REMOVE_TITLE</base>
+        <trans>Fjern sikkerhedskopi job</trans>
+    </entry>
+    <entry>
+            <base>JOBNAME</base>
+            <trans>Job navn</trans>
+    </entry>
+    <entry>
+            <base>BACKUP</base>
+            <trans>Sikkerhedskopi</trans>
+    </entry>
+    <entry>
+            <base>EXCLUDE</base>
+            <trans>Udelad filer</trans>
+    </entry>
+    <entry>
+            <base>PRUNE</base>
+            <trans>Udelad biblioteker</trans>
+    </entry>
+    <entry>
+            <base>TARGET</base>
+            <trans>Destination</trans>
+    </entry>
+    <entry>
+            <base>SLICE</base>
+            <trans>Fil størrelse</trans>
+    </entry>
+    <entry>
+            <base>VFSTYPE</base>
+            <trans>Filsystem</trans>
+    </entry>
+    
+    <entry>
+            <base>COMPRESSION</base>
+            <trans>Komprimering</trans>
+    </entry>
+    <entry>
+            <base>USERNAME</base>
+            <trans>Brugernavn</trans>
+    </entry>
+    <entry>
+            <base>EXPIRY</base>
+            <trans>Udløb</trans>
+    </entry>
+    <entry>
+            <base>VERBOSE</base>
+            <trans>Detaljer</trans>
+    </entry>
+    <entry>
+            <base>BACKUP_DAY</base>
+            <trans>Backup dag</trans>
+    </entry>
+    <entry>
+            <base>BACKUP_TIME</base>
+            <trans>Backup tid</trans>
+    </entry>
+    <entry>
+            <base>LOCALDRIVE</base>
+            <trans>Lokalt drev</trans>
+    </entry>
+    <entry>
+            <base>MOUNTED</base>
+            <trans>Tilsluttet</trans>
+    </entry>
+    <entry>
+            <base>NETWORKSHARE</base>
+            <trans>Netværks drev</trans>
+    </entry>
+    <entry>
+            <base>UNMOUNTED</base>
+            <trans>Frakoblet</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_RESTORE_DATE</base>
+        <trans>Indtast dato på det arkiv du ønsker at gendanne fra. Format: [ åååå.mm.dd ]</trans>
+    </entry>
+    <entry>
+            <base>RESTORE_DATE</base>
+            <trans>Dato</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_RESTORE_DR</base>
+        <trans><![CDATA[ <P>To perform a full disaster recovery restore set the following:</P> <P><B>Disaster Recovery</B> [ Enabled ] <B>Restore</B> [ *.* ] <B>Restore to</B> [ / ]</P> <P>Note: After completion of a full disaster recovery restore, you will need to enter the server-manager <B>Reboot or shutdown</B> panel and <B>Reconfigure</B> your server.</P> <P>To perform a selective restore, enter one restore path per line. Paths must be relative. Example: To restore /root/contribs to the original location you would therefore enter:</P> <P><B>Disaster Recovery</B> [ Disabled ] <B>Restore</B> [ root/contribs ] <B>Restore to</B> [ / ]</P> ]]></trans>
+    </entry>
+    <entry>
+            <base>RESTORE_DR</base>
+            <trans>Total gendannelse</trans>
+    </entry>
+    <entry>
+            <base>RESTORE_RESTORETO</base>
+            <trans>Gendan til</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_JOBNAME</base>
+        <trans>Skriv et entydigt navn til sikkerhedskopien. Navnet må kun indeholde bogstaver, tal, punktummer, bindestreger og understregningstegn. Ikke mellemrum.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_DESC</base>
+        <trans>Indtast en beskrivende tekst for denne sikkerhedskopi.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_DR</base>
+        <trans>Aktivering af Total Gendannelse betyder, at der gennemføres yderligere processer under sikkerhedskopiering og gendannelse. Deaktiver, hvis der kun skal udføres en standard backup.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_BACKUP</base>
+        <trans>Alle valg for at kunne gennemføre en Total Gendannelse er aktiveret nedenfor. Bemærk at absolutte stiangivelser er ugyldige. Alle stiangivelser skal angives relativt til "hjemmebiblioteket". Eksempel: [home] er relativt/korrekt, [/home] er absolut/ugyldigt. Hvis du ønsker at gennemføre en standard sikkerhedskopi skal du i nødvendigt omfang redigere sikkerhedskopi angivelserne nedenfor. Kun én stiangivelse pr linie. Indtast ikke [ /,/blah,proc,tmp ].</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_EXCLUDE</base>
+        <trans>Indtast fil udeladelser. Eksempel: [ home/e-smith/files/ibays/ibayname/files/document.doc ]. En angivelse pr linje. Jokertegn * og ? er gyldige.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_PRUNE</base>
+        <trans>Indtast stiangivelser som skal udelades og ikke medtages i sikkerhedskopien. Eksempel: [ home/e-smith/files/ibays/ibayname ]. En angivelse pr linje. Jokertegn * og ? er gyldige.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_TARGET</base>
+        <trans><![CDATA[ <P>Valid targets are an attached local drive or network share.</P> <P>If backing up to an attached local drive, enter the target mount point of your drive. Example: [/media/usbdisk]. Leave the username and password fields blank.</P> <P>If backing up to a network share, enter the target in UNC format. Example: [//computername/sharename]. In addition you must enter a valid username/password that is a local account on the target with full access rights to the share.</P> ]]></trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_VFSTYPE</base>
+        <trans>Tre filsystemer er understøttet. [ext3] for sikkerhedskopi til lokalt tilsluttet drev. [smbfs] for sikkerhedskopi til Microsoft Windows pcer og SME Server shares. [cifs] for sikkerhedskopi til Microsoft Windows Server. Bemærk, at ved brug af cifs, skal destinationen angives som IP adresse. Eksempel: [//10.1.1.1/sharenavn].</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_SLICE</base>
+        <trans>Indtast størrelsen på sikkerhedskopi filerne i megabytes. Som eksempel på at danne filer på 650 MB som kan lægges på cd-rom skal du indtaste [ 650 ]. Det vil danne backup filer i følgende format: job.åååå.mm.dd.1.dar, job.åååå.mm.dd.2.dar og så videre. Bemærk at den maksimale størrelse er 2000 MB. Størrelsen på Total sikkerhedskopi job er kun begrænset af destinationens ledige diskkapacitet.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_COMPRESSION</base>
+        <trans>Indtast komprimeringsniveau fra 0 (ingen) til 9 (maksimal). Ingen komprimering forbedrer hastigheden på sikkerhedskopieringen dramatisk.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_U_P</base>
+        <trans>Hvis du udfører sikkerhedskopiering til et netværksdrev, indtast et gyldigt brugernavn/adgangskode for en lokal brugerkonto med fuld adgangsrettighed til netværksdrevet. Undlad brugernavn og adgangskode hvis der udføres sikkerhedskopiering til et lokalt tilsluttet drev.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_EXPIRY</base>
+        <trans>Indtast en udløbsdato for sikkerhedskopien. Det vil sikre at sikkerhedskopien forbliver på destinationen i n dage. At vælge 0 betyder at sikkerhedskopien overskrives hver dag.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_VERBOSE</base>
+        <trans>Verbose-muligheden angiver mængden af oversigtdetaljer. Hvis aktiveret dannes en fuld filliste, og der oprettes en log fil. Hvis deaktiveret oprettes kun en oversigt og ingen log fil. Bemærk, at når Verbose er aktiveret, er størrelsen af de dannede filer relativ til størrelsen af sikkerhedskopi jobbet og de kan derfor blive temmelig store. Planlagte jobs medfører, at der sendes en e-mail til admin med detaljer om jobbet.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_BACKUP_DAY</base>
+        <trans>Indtast den dag du ønsker at gennemføre sikkerhedskopien. Vælg manual, for ikke planlagt, manuel brug.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_BACKUP_TIME</base>
+        <trans>Indtast starttid for sikkerhedskopi i 24 timers format (tt:mm).</trans>
+    </entry>
+</lexicon>

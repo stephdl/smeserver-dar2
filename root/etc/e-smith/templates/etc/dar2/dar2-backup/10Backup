@@ -1,0 +1,9 @@
+{
+    $Backup = $props{"Backup"} || "";
+    @Backup = split(/,/, "$Backup");
+
+    foreach $Backup (@Backup)
+	{
+	$OUT .= "--go-into \"$Backup\"\n";
+        }
+}

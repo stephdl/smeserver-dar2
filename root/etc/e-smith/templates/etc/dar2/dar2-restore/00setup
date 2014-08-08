@@ -1,0 +1,15 @@
+{
+    $Job = $ARGV [1];
+    die "job name missing" unless defined ($Job);
+
+    use esmith::ConfigDB;
+    $db = esmith::ConfigDB->open_ro("dar2") or die "Couldn't open dar2";
+
+    $brec = $db->get("$Job") or die "No bakup job $Job in dar2";
+    %bprops = $brec->props;
+
+    $rrec = $db->get("Restore.$Job") or die "No restore job $Job in dar2";
+    %rprops = $rrec->props;
+
+    $OUT = '';
+}

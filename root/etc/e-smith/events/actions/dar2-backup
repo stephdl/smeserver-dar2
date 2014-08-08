@@ -1,0 +1,126 @@
+#!/bin/sh
+
+if [ ! -z "$1" ]
+    then
+        DCF=$1
+    else
+        /bin/echo "Syntax incorrect! Usage: dar2-backup dcf"
+        exit 0
+fi
+
+STATUS=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF status)
+if [ "$STATUS" != 'enabled' ]
+    then
+        exit 1
+fi
+
+# Backup variables
+STIME=$(/bin/date)
+DAR="/usr/bin/dar"
+EXPIRY=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF Expiry)
+ID=$(/sbin/e-smith/config get SystemName).$(/sbin/e-smith/config get DomainName)
+MOUNT=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF Mount) ## /media/usbdisk or /mnt/dar2
+TARGET=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF Target) ## //host/share
+USERNAME=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF Username)
+PASSWORD=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF Password)
+VERBOSE=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF Verbose)
+VFSTYPE=$(/sbin/e-smith/db /home/e-smith/db/dar2 getprop $DCF VFSType) ## man mount
+TODAY=$(/bin/date +%Y.%m.%d)
+
+/bin/umount $MOUNT >/dev/null 2>&1
+
+# mount
+if [ "$MOUNT" == "/mnt/dar2" ]
+    then
+	MOUNT=$MOUNT/$DCF
+	# create mount dir
+	if [ ! -d $MOUNT ]
+	    then
+        	/bin/echo "Creating $MOUNT dir"
+	        /bin/mkdir -p $MOUNT || exit 2
+	fi
+	/bin/echo "Connecting $MOUNT to $TARGET"
+        /bin/mount -t $VFSTYPE -o username=$USERNAME,password=$PASSWORD $TARGET $MOUNT || exit 3
+     else
+        /bin/echo "Connecting to $MOUNT"
+        /bin/mount $MOUNT || exit 4
+fi
+
+# expand job template
+/bin/echo "Expanding /etc/dar2/$DCF template"
+if [ -e "/etc/dar2/$DCF" ]
+   then
+        /bin/rm -f /etc/dar2/$DCF || exit 5
+fi
+/sbin/e-smith/expand-template /etc/dar2/dar2-backup $DCF ; /bin/mv /etc/dar2/dar2-backup /etc/dar2/$DCF || exit 6
+
+# create destination dir
+if [ ! -d $MOUNT/$ID/$DCF ]
+    then
+        /bin/echo "Creating destination /$ID/$DCF dir"
+        /bin/mkdir -p $MOUNT/$ID/$DCF || exit 7
+fi
+
+# zip and store db's
+/bin/echo "Creating $MOUNT/$ID/$DCF/db.zip"
+/usr/bin/zip -q -D $MOUNT/$ID/$DCF/db.zip /home/e-smith/db/*
+
+# expire old backups
+/bin/echo "Expiring old backups"
+if [ "$EXPIRY" == "0" ]
+   then
+	/bin/rm -f $MOUNT/$ID/$DCF/*.dar
+   else
+	/usr/bin/find $MOUNT/$ID/$DCF/*.dar -type f -mtime +$EXPIRY -exec /bin/rm -f {} \; > /dev/null 2>&1 
+fi
+
+# execute pre-backup event
+/bin/echo "Executing pre-backup event"
+/sbin/e-smith/signal-event pre-backup || exit 8
+
+# state verbose
+if [ "$VERBOSE" == "on" ]
+    then
+	/bin/echo "Verbose logging is on"
+    else
+        /bin/echo "Verbose logging is off"
+fi
+
+# perform dar backup
+/bin/echo "Performing $DCF backup"
+$DAR -B /etc/dar2/$DCF -c $MOUNT/$ID/$DCF/$TODAY || exit 9
+
+# list archives
+/bin/echo ""
+/bin/echo "Listing $DCF archives on target:"
+/bin/ls -l $MOUNT/$ID/$DCF/ || 10
+
+# disk space usage
+/bin/echo ""
+/bin/echo "Total target disk space usage:"
+/bin/df -h $MOUNT || 11
+/bin/echo ""
+
+# execute post-backup event
+/bin/echo "Executing post-backup event"
+/sbin/e-smith/signal-event post-backup || exit 12
+
+# create log file
+if [ "$VERBOSE" == "on" ]
+    then
+    /bin/echo "Creating /var/log/dar2/$ID/$DCF/$TODAY.log"
+    if [ ! -d /var/log/dar2/$ID/$DCF ]
+	then
+        /bin/mkdir -p /var/log/dar2/$ID/$DCF || exit 13
+    fi
+    $DAR -l $MOUNT/$ID/$DCF/$TODAY -as > /var/log/dar2/$ID/$DCF/$TODAY.log || exit 14
+fi
+
+# dismount
+/bin/echo "Dismounting $MOUNT"
+/bin/umount -l $MOUNT &
+
+FTIME=$(/bin/date)
+/bin/echo ""
+/bin/echo "$STIME - backup started"
+/bin/echo "$FTIME - backup finished"

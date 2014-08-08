@@ -1,0 +1,187 @@
+<lexicon lang="sv">
+    <entry>
+        <base>FORM_TITLE</base>
+        <trans>Disk ARchive</trans>
+    </entry>
+    <entry>
+        <base>FORM_DESCRIPTION</base>
+        <trans><![CDATA[ <p>Use this panel to define, schedule and launch server backups and restores, to and from network shares or an attached local disk.</p> <p><a class="button-like" href="dar2?page=0&page_stack=&Next=Next&wherenext=DAR2_PAGE_CREATE">Create backup job</a></p> ]]></trans>
+    </entry>
+    <entry>
+        <base>NO_BACKUP_JOBS</base>
+        <trans>Det finns inga backuparbeten på systemet.</trans>
+    </entry>
+    <entry>
+        <base>MODIFY</base>
+        <trans>Visa/Ändra</trans>
+    </entry>
+    <entry>
+        <base>CREATE_TITLE</base>
+        <trans>Skapa backup-jobb</trans>
+    </entry>
+    <entry>
+        <base>MODIFY_TITLE</base>
+        <trans>Ändra backup-jobb</trans>
+    </entry>
+    <entry>
+        <base>RESTORE_TITLE</base>
+        <trans>Återställ backup-jobb</trans>
+    </entry>
+    <entry>
+        <base>BACKUP_TITLE</base>
+        <trans>Starta backup-jobb</trans>
+    </entry>
+    <entry>
+        <base>REMOVE_TITLE</base>
+        <trans>Återställ backup-jobb</trans>
+    </entry>
+    <entry>
+            <base>JOBNAME</base>
+            <trans>Jobbnamn</trans>
+    </entry>
+    <entry>
+            <base>BACKUP</base>
+            <trans>Valda backup-jobb</trans>
+    </entry>
+    <entry>
+            <base>EXCLUDE</base>
+            <trans>Exkludera filer</trans>
+    </entry>
+    <entry>
+            <base>PRUNE</base>
+            <trans>Beskär mappar</trans>
+    </entry>
+    <entry>
+            <base>TARGET</base>
+            <trans>Mål</trans>
+    </entry>
+    <entry>
+            <base>SLICE</base>
+            <trans>Storlek på delar</trans>
+    </entry>
+    <entry>
+            <base>VFSTYPE</base>
+            <trans>Filsystem</trans>
+    </entry>
+    
+    <entry>
+            <base>COMPRESSION</base>
+            <trans>Kompression</trans>
+    </entry>
+    <entry>
+            <base>USERNAME</base>
+            <trans>Användarnamn</trans>
+    </entry>
+    <entry>
+            <base>EXPIRY</base>
+            <trans>Utgår</trans>
+    </entry>
+    <entry>
+            <base>VERBOSE</base>
+            <trans>Detaljrik</trans>
+    </entry>
+    <entry>
+            <base>BACKUP_DAY</base>
+            <trans>Backupdag</trans>
+    </entry>
+    <entry>
+            <base>BACKUP_TIME</base>
+            <trans>Backuptid</trans>
+    </entry>
+    <entry>
+            <base>LOCALDRIVE</base>
+            <trans>Lokal enhet</trans>
+    </entry>
+    <entry>
+            <base>MOUNTED</base>
+            <trans>Monterad</trans>
+    </entry>
+    <entry>
+            <base>NETWORKSHARE</base>
+            <trans>Nätverksenhet</trans>
+    </entry>
+    <entry>
+            <base>UNMOUNTED</base>
+            <trans>Avmonterad</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_RESTORE_DATE</base>
+        <trans>Ange datumet på det arkiv du önskar återställa från. Format: [ yyyy.mm.dd ]</trans>
+    </entry>
+    <entry>
+            <base>RESTORE_DATE</base>
+            <trans>Datum</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_RESTORE_DR</base>
+        <trans><![CDATA[ <P>To perform a full disaster recovery restore set the following:</P> <P><B>Disaster Recovery</B> [ Enabled ] <B>Restore</B> [ *.* ] <B>Restore to</B> [ / ]</P> <P>Note: After completion of a full disaster recovery restore, you will need to enter the server-manager <B>Reboot or shutdown</B> panel and <B>Reconfigure</B> your server.</P> <P>To perform a selective restore, enter one restore path per line. Paths must be relative. Example: To restore /root/contribs to the original location you would therefore enter:</P> <P><B>Disaster Recovery</B> [ Disabled ] <B>Restore</B> [ root/contribs ] <B>Restore to</B> [ / ]</P> ]]></trans>
+    </entry>
+    <entry>
+            <base>RESTORE_DR</base>
+            <trans>Katastrofåterställning</trans>
+    </entry>
+    <entry>
+            <base>RESTORE_RESTORETO</base>
+            <trans>Återställ till</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_JOBNAME</base>
+        <trans>Ange ett unikt arbetsnamn. Namnet skall endast innehålla bokstäver, siffror, punkt, bindestreck eller understrykning. Inga mellanslag.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_DESC</base>
+        <trans>Ange en beskrivning över detta backuparbete.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_DR</base>
+        <trans>Ett katastrofåterställningsarbete kör ytterligare systemprocesser under backup och återställning. Ange avaktiverad om du genomför en standardbackup.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_BACKUP</base>
+        <trans>Alla val för att genomföra en katastrofbackup finns nedan. Observera absoluta sökvägar är ogiltiga. Alla sökvägar måste vara relativa basen / mappen. Exempel: [home] är relativt / dvs korrekt. [/home] är absolut / dvs ogiltigt. Om du genomför en standardbackup, ändra de backupval som krävs nedanför. Ett värde per rad. Ange inte [ /,/blah,proc,temp ].</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_EXCLUDE</base>
+        <trans>Ange filer som skall undantas. Exempel: [home/e-smith/files/ibays/ibayname/document.doc ]. Ett värde per rad. Jokrar * och ? är giltiga.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_PRUNE</base>
+        <trans>Ange mappar om inte skall inkluderas i backupen. Exempel: [ home/e-smith/files/ibays/ibayname ]. Ett värde per rad. Jokrar * och ? är giltiga.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_TARGET</base>
+        <trans><![CDATA[ <P>Valid targets are an attached local drive or network share.</P> <P>If backing up to an attached local drive, enter the target mount point of your drive. Example: [/media/usbdisk]. Leave the username and password fields blank.</P> <P>If backing up to a network share, enter the target in UNC format. Example: [//computername/sharename]. In addition you must enter a valid username/password that is a local account on the target with full access rights to the share.</P> ]]></trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_VFSTYPE</base>
+        <trans>Tre filsystem stöds. [ext3] för backup till lokalt ansluten disk. [smbfs] för backup till en windows klient och delade SME nätverksenheter. [cifs] för backup till Microsoft Windows Server. OBS. vid användande av cifs, måste målets IP-adress användas. Exempel: [//10.1.1.1/sharename].</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_SLICE</base>
+        <trans>Ange backup volymens segmentsdelar i megabyte. Exempelvis: för att skapa 650MB volymsegment för kopiering till CDR/RW bör du ange [ 650 ]. Detta kommer att skapa målfiler i följande format job.yyyy.mm.dd.1.dar, job.yyyy.mm.dd.2.dar, och så vidare. Observera att det maximala segmentstorleken är 2000MB. Det totala arbetsstorleken begränsas endast av tillgängligt utrymme på målenheten.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_COMPRESSION</base>
+        <trans>Ange kompressionsnivån från 0 (ingen) till 9 (maximal). Ingen kompression ökar dramatiskt backuphastigheten.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_U_P</base>
+        <trans>Om backup sker till en delad nätverksenhet, ange ett giltigt användarnamn/lösenord som är ett lokalt användarkonto på målet med fullständiga rättigheter på enheten. Lämna användarnamnet och lösenordet tomt om du gör en backup till en lokalt ansluten enhet.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_EXPIRY</base>
+        <trans>Ange tiden då giltighetstiden för backupen skall utgå. Detta innebär att backuper kommer att sparas i n dagar. Välj 0 om backupen skall skrivas över varje dag.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_VERBOSE</base>
+        <trans>Den utförliga valmöjligheten anger detaljnivån. På ger fullständig fillista och generering av loggfil. Av ger endast sammanfattad information och ingen loggfil. Observera: Om påslagen kommer storleken på de genererade filerna att vara beroende på backupjobbets storlek och kan bli ganska stora! Scemalagda jobb kommer att skicka ett e-postmeddelande till administratören med jobbdetaljerna.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_BACKUP_DAY</base>
+        <trans>Ange dagen då du önskar att denn backup skall göras. Ange manuell för ej schemalagd manuellt användande.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_BACKUP_TIME</base>
+        <trans>Ange tidpunkten då du önskar att backupen görs i 24-timmars format (hh:mm).</trans>
+    </entry>
+</lexicon>

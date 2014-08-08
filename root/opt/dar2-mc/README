@@ -1,0 +1,8 @@
+What's this?
+
+This is a package to add support for dar archives to the Midnight 
+Commander.
+
+To add dar archive handling to Midnight Commander simply execute the install.sh script:
+
+# ./install.sh

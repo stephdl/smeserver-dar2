@@ -1,0 +1,82 @@
+#!/bin/sh
+
+# default variables
+STIME=$(/bin/date)
+DAR="/usr/bin/dar"
+ID=$(/sbin/e-smith/config get SystemName).$(/sbin/e-smith/config get DomainName)
+
+clear
+/bin/echo "Enter your restore type: usb | network"
+read TYPE
+
+/bin/echo "Enter your job name:"
+read DCF
+
+/bin/echo "Enter your archive date to restore from: yyyy.mm.dd"
+read DATE
+
+if [ "$TYPE" == "usb" ]
+    then
+	# usb variables
+	/bin/echo "Enter your usb mount point: /media/usbdisk"
+	read MOUNT
+
+        /bin/echo "Connecting to $MOUNT"
+        /bin/mount $MOUNT
+fi
+
+if [ "$TYPE" == "network" ]
+    then
+	# ws variables
+	MOUNT=/mnt/dar2
+
+	/bin/echo "Enter your target name: //computername/sharename"
+	read TARGET
+
+	/bin/echo "Enter your username:"
+	read USERNAME
+
+	/bin/echo "Enter your password:"
+	read PASSWORD
+
+	/bin/echo "Enter your filesystem type: smbfs | cifs"
+	read VFSTYPE
+
+        MOUNT=$MOUNT/$DCF
+        # create mount dir
+        if [ ! -d $MOUNT ]
+            then
+                /bin/echo "Creating $MOUNT dir"
+                /bin/mkdir -p $MOUNT
+        fi
+        /bin/echo "Connecting $MOUNT to $TARGET"
+        /bin/mount -t $VFSTYPE -o username=$USERNAME,password=$PASSWORD $TARGET $MOUNT
+fi
+
+# check backup dir
+if [ ! -d $MOUNT/$ID/$DCF ]
+    then
+        /bin/echo "Error locating /$ID/$DCF dir"
+        exit 7
+fi
+
+# execute pre-restore event
+/bin/echo "Executing pre-restore event"
+/sbin/e-smith/signal-event pre-restore
+
+# perform dar restore
+/bin/echo "Performing $DCF restore"
+$DAR -x $MOUNT/$ID/$DCF/$DATE --fs-root / --noconf --no-warn  --empty-dir --verbose
+
+# dismount
+/bin/echo "Dismounting $MOUNT"
+/bin/umount -l $MOUNT &
+
+FTIME=$(/bin/date)
+
+/bin/echo "$STIME - restore started"
+/bin/echo "$FTIME - restore finished"
+
+# execute post restore events
+/bin/echo "Executing post-upgrade & reboot"
+/sbin/e-smith/signal-event post-upgrade;reboot

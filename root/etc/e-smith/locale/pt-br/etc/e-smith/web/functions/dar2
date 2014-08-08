@@ -1,0 +1,187 @@
+<lexicon lang="pt-br">
+    <entry>
+        <base>FORM_TITLE</base>
+        <trans>Disk ARchive</trans>
+    </entry>
+    <entry>
+        <base>FORM_DESCRIPTION</base>
+        <trans><![CDATA[ <p>Use this panel to define, schedule and launch server backups and restores, to and from network shares or an attached local disk.</p> <p><a class="button-like" href="dar2?page=0&page_stack=&Next=Next&wherenext=DAR2_PAGE_CREATE">Create backup job</a></p> ]]></trans>
+    </entry>
+    <entry>
+        <base>NO_BACKUP_JOBS</base>
+        <trans>Não há trabalhos de backup no sistema.</trans>
+    </entry>
+    <entry>
+        <base>MODIFY</base>
+        <trans>Ver/Modificar</trans>
+    </entry>
+    <entry>
+        <base>CREATE_TITLE</base>
+        <trans>Criar trabalho de backup</trans>
+    </entry>
+    <entry>
+        <base>MODIFY_TITLE</base>
+        <trans>Modificar trabalho de backup</trans>
+    </entry>
+    <entry>
+        <base>RESTORE_TITLE</base>
+        <trans>Restaurar trabalho de backup</trans>
+    </entry>
+    <entry>
+        <base>BACKUP_TITLE</base>
+        <trans>Iniciar trabalho de backup</trans>
+    </entry>
+    <entry>
+        <base>REMOVE_TITLE</base>
+        <trans>Remover trabalho de backup</trans>
+    </entry>
+    <entry>
+            <base>JOBNAME</base>
+            <trans>Nome do trabalho</trans>
+    </entry>
+    <entry>
+            <base>BACKUP</base>
+            <trans>Seleções do Backup</trans>
+    </entry>
+    <entry>
+            <base>EXCLUDE</base>
+            <trans>Excluir arquivos</trans>
+    </entry>
+    <entry>
+            <base>PRUNE</base>
+            <trans>Cortar diretórios</trans>
+    </entry>
+    <entry>
+            <base>TARGET</base>
+            <trans>Destino</trans>
+    </entry>
+    <entry>
+            <base>SLICE</base>
+            <trans>Tamanho da fatia</trans>
+    </entry>
+    <entry>
+            <base>VFSTYPE</base>
+            <trans>Sistema de Arquivos</trans>
+    </entry>
+    
+    <entry>
+            <base>COMPRESSION</base>
+            <trans>Compressão</trans>
+    </entry>
+    <entry>
+            <base>USERNAME</base>
+            <trans>Nome de usuário</trans>
+    </entry>
+    <entry>
+            <base>EXPIRY</base>
+            <trans>Expiração</trans>
+    </entry>
+    <entry>
+            <base>VERBOSE</base>
+            <trans>Verbose</trans>
+    </entry>
+    <entry>
+            <base>BACKUP_DAY</base>
+            <trans>Dia do Backup</trans>
+    </entry>
+    <entry>
+            <base>BACKUP_TIME</base>
+            <trans>Horário do Backup</trans>
+    </entry>
+    <entry>
+            <base>LOCALDRIVE</base>
+            <trans>Drive local</trans>
+    </entry>
+    <entry>
+            <base>MOUNTED</base>
+            <trans>Montado</trans>
+    </entry>
+    <entry>
+            <base>NETWORKSHARE</base>
+            <trans>Compartilhamento de rede</trans>
+    </entry>
+    <entry>
+            <base>UNMOUNTED</base>
+            <trans>Desmontado</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_RESTORE_DATE</base>
+        <trans>Digite a data do arquivo a partir do qual você deseja restaurar. Formato: [ aaaa.mm.dd ]</trans>
+    </entry>
+    <entry>
+            <base>RESTORE_DATE</base>
+            <trans>Data</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_RESTORE_DR</base>
+        <trans><![CDATA[ <P>To perform a full disaster recovery restore set the following:</P> <P><B>Disaster Recovery</B> [ Enabled ] <B>Restore</B> [ *.* ] <B>Restore to</B> [ / ]</P> <P>Note: After completion of a full disaster recovery restore, you will need to enter the server-manager <B>Reboot or shutdown</B> panel and <B>Reconfigure</B> your server.</P> <P>To perform a selective restore, enter one restore path per line. Paths must be relative. Example: To restore /root/contribs to the original location you would therefore enter:</P> <P><B>Disaster Recovery</B> [ Disabled ] <B>Restore</B> [ root/contribs ] <B>Restore to</B> [ / ]</P> ]]></trans>
+    </entry>
+    <entry>
+            <base>RESTORE_DR</base>
+            <trans>Recuperação de Desastre</trans>
+    </entry>
+    <entry>
+            <base>RESTORE_RESTORETO</base>
+            <trans>Restaurar para</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_JOBNAME</base>
+        <trans>Digite um nome do trabalho de backup que seja único. O nome deve conter apenas letras, números, pontos, hifens e sublinhados. Não pode conter espaços.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_DESC</base>
+        <trans>Digite uma descrição para este trabalho de backup.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_DR</base>
+        <trans>Um trabalho de backup de Recuperação de Desastre roda processos do sistema adicionais durante o backup e a restauração. Por favor defina como Desabilitado se estiver fazendo um backup normal.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_BACKUP</base>
+        <trans>Todas as configurações necessárias para fazer um backup de Recuperação de Desastre estão pré-definidas abaixo. Note que caminhos absolutos são inválidos. Todos caminhos devem ser relativos ao diretório base /. Exemplo: [home] é relativo e está correto, [/home] é absoluto e está incorreto. Se você está fazendo um backup padrão, edite as seleções de backup abaixo como necessário. Uma entrada por linha. Não inclua  [ /,/blah,proc,tmp ].</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_EXCLUDE</base>
+        <trans>Digite qualquer exclusão de arquivos.  Exemplo: [ home/e-smith/files/ibays/xxxx/files/document.doc ]. Uma entrada por linha.  Os caracteres * e ? são válidos.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_PRUNE</base>
+        <trans>Digite qualquer árvore de diretório para cortar e não incluir no backup. Exemplo: [home/e-smith/files/ibays/lixo ]. Apenas uma entrada por linha. Pode-se usar * e ? como wildcards, pois são válidos.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_TARGET</base>
+        <trans><![CDATA[ <P>Valid targets are an attached local drive or network share.</P> <P>If backing up to an attached local drive, enter the target mount point of your drive. Example: [/media/usbdisk]. Leave the username and password fields blank.</P> <P>If backing up to a network share, enter the target in UNC format. Example: [//computername/sharename]. In addition you must enter a valid username/password that is a local account on the target with full access rights to the share.</P> ]]></trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_VFSTYPE</base>
+        <trans>Três sistemas de arquivos são suportados. [ext3] para backup em discos conectados localmente. [smbfs] para backup em estações de trabalho Windows e compartilhamentos de rede do servidor SME. [cifs] para backup em Servidor Windows Microsoft. Note que se usando cifs, a entrada do destino acima deve usar o endereço ip. Exemplo: [//10.1.1.1/compartilhamento].</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_SLICE</base>
+        <trans>Digite o tamanho das fatias dos volumes do backup. Como exemplo, para criar segmentos de 650MB que caibam em um CD/CDRW você deve digitar [ 650 ]. Isto gerará a criação de arquivos no destino com o seguinte formato: trabalho.yyyy.mm.dd.1.dar , trabalho.yyyy.mm.dd.2.dar, etc. Note que o tamanho máximo dos segmentos é 2.000 MB. O tamanho total do trabalho de backup é apenas limitado pelo espaço disponível no destino.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_COMPRESSION</base>
+        <trans>Digite o nível de compressão de 0 (nenhuma) até 9 (máxima). Nenhuma compressão melhora dramaticamente a velocidade de backup.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_U_P</base>
+        <trans>Se fazendo backup para um compartilhamento de rede, entre um nome de usuário e senha válidos naquele destino com acesso completo aos arquivos. Deixe o nome de usuário e senha em branco se estiver fazendo backup num drive conectado localmente.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_EXPIRY</base>
+        <trans>Digite o tempo de expiração do backup. Isto deixará o backup no destino por N dias. Escolher 0 significa que os backups serão sobrescritos cada dia.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_VERBOSE</base>
+        <trans>Opções de verbose definem o nível de detalhes na saída. Ligado significa que uma lista completa de arquivos e um arquivo de log serão gerados. Desligado significa apenas um sumário dos detalhes e a não geração de um arquivo de log. Note que se for ligado, o arquivo de saída pode ser bem grande. Trabalhos de backup programados geram um e-mail para o administrador dos detalhes do trabalho de backup.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_BACKUP_DAY</base>
+        <trans>Digite o dia que você gostaria que este backup inicie. Deixe em manual para uso não programado onde você faz o backup manualmente.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_BACKUP_TIME</base>
+        <trans>Digite o horário que você gostaria que este backup iniciasse no formato 24 horas (hh:mm)</trans>
+    </entry>
+</lexicon>

@@ -1,0 +1,9 @@
+{
+    $Exclude = $props{"Exclude"} || "";
+    @Exclude = split(/,/, "$Exclude");
+
+    foreach $Exclude (@Exclude)
+	{
+        $OUT .= "--exclude \"$Exclude\"\n";
+        }
+}

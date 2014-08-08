@@ -1,0 +1,9 @@
+{
+    $Prune = $props{"Prune"} || "";
+    @Prune = split(/,/, "$Prune");
+
+    foreach $Prune (@Prune)
+        {
+        $OUT .= "--prune \"$Prune\"\n";
+        }
+}

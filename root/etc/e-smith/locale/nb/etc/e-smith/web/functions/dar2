@@ -1,0 +1,187 @@
+<lexicon lang="nb">
+    <entry>
+        <base>FORM_TITLE</base>
+        <trans>Disk ARchive</trans>
+    </entry>
+    <entry>
+        <base>FORM_DESCRIPTION</base>
+        <trans><![CDATA[ <p>Use this panel to define, schedule and launch server backups and restores, to and from network shares or an attached local disk.</p> <p><a class="button-like" href="dar2?page=0&page_stack=&Next=Next&wherenext=DAR2_PAGE_CREATE">Create backup job</a></p> ]]></trans>
+    </entry>
+    <entry>
+        <base>NO_BACKUP_JOBS</base>
+        <trans>There are no backup jobs in the system.</trans>
+    </entry>
+    <entry>
+        <base>MODIFY</base>
+        <trans>View/Modify</trans>
+    </entry>
+    <entry>
+        <base>CREATE_TITLE</base>
+        <trans>Create backup job</trans>
+    </entry>
+    <entry>
+        <base>MODIFY_TITLE</base>
+        <trans>Modify backup job</trans>
+    </entry>
+    <entry>
+        <base>RESTORE_TITLE</base>
+        <trans>Restore backup job</trans>
+    </entry>
+    <entry>
+        <base>BACKUP_TITLE</base>
+        <trans>Launch backup job</trans>
+    </entry>
+    <entry>
+        <base>REMOVE_TITLE</base>
+        <trans>Remove backup job</trans>
+    </entry>
+    <entry>
+            <base>JOBNAME</base>
+            <trans>Job name</trans>
+    </entry>
+    <entry>
+            <base>BACKUP</base>
+            <trans>Backup selections</trans>
+    </entry>
+    <entry>
+            <base>EXCLUDE</base>
+            <trans>Exclude files</trans>
+    </entry>
+    <entry>
+            <base>PRUNE</base>
+            <trans>Prune directories</trans>
+    </entry>
+    <entry>
+            <base>TARGET</base>
+            <trans>Target</trans>
+    </entry>
+    <entry>
+            <base>SLICE</base>
+            <trans>Slice size</trans>
+    </entry>
+    <entry>
+            <base>VFSTYPE</base>
+            <trans>File system</trans>
+    </entry>
+    
+    <entry>
+            <base>COMPRESSION</base>
+            <trans>Compression</trans>
+    </entry>
+    <entry>
+            <base>USERNAME</base>
+            <trans>Brukernavn</trans>
+    </entry>
+    <entry>
+            <base>EXPIRY</base>
+            <trans>Expiry</trans>
+    </entry>
+    <entry>
+            <base>VERBOSE</base>
+            <trans>Verbose</trans>
+    </entry>
+    <entry>
+            <base>BACKUP_DAY</base>
+            <trans>Backup day</trans>
+    </entry>
+    <entry>
+            <base>BACKUP_TIME</base>
+            <trans>Backup time</trans>
+    </entry>
+    <entry>
+            <base>LOCALDRIVE</base>
+            <trans>Local drive</trans>
+    </entry>
+    <entry>
+            <base>MOUNTED</base>
+            <trans>Mounted</trans>
+    </entry>
+    <entry>
+            <base>NETWORKSHARE</base>
+            <trans>Network share</trans>
+    </entry>
+    <entry>
+            <base>UNMOUNTED</base>
+            <trans>Unmounted</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_RESTORE_DATE</base>
+        <trans>Enter the date of the archive you wish to restore from. Format: [ yyyy.mm.dd ]</trans>
+    </entry>
+    <entry>
+            <base>RESTORE_DATE</base>
+            <trans>Date</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_RESTORE_DR</base>
+        <trans><![CDATA[ <P>To perform a full disaster recovery restore set the following:</P> <P><B>Disaster Recovery</B> [ Enabled ] <B>Restore</B> [ *.* ] <B>Restore to</B> [ / ]</P> <P>Note: After completion of a full disaster recovery restore, you will need to enter the server-manager <B>Reboot or shutdown</B> panel and <B>Reconfigure</B> your server.</P> <P>To perform a selective restore, enter one restore path per line. Paths must be relative. Example: To restore /root/contribs to the original location you would therefore enter:</P> <P><B>Disaster Recovery</B> [ Disabled ] <B>Restore</B> [ root/contribs ] <B>Restore to</B> [ / ]</P> ]]></trans>
+    </entry>
+    <entry>
+            <base>RESTORE_DR</base>
+            <trans>Disaster Recovery</trans>
+    </entry>
+    <entry>
+            <base>RESTORE_RESTORETO</base>
+            <trans>Restore to</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_JOBNAME</base>
+        <trans>Enter a unique backup job name. The name should contain only letters, numbers, periods, hyphens and underscores. No spaces.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_DESC</base>
+        <trans>Enter a description for this backup job.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_DR</base>
+        <trans>A Disaster Recovery backup job runs additional system processes during backup and restore events. Please set to Disabled if performing a standard backup.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_BACKUP</base>
+        <trans>All backup selections needed to perform a Disaster Recovery are preset below. Note absolute paths are invalid. All paths must be relative to the base / directory. Example: [home] is relative/correct, [/home] is absolute/incorrect. If you are a performing a standard backup, edit the backup selections as required below. One entry per line. Do not enter [ /,/blah,proc,tmp ].</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_EXCLUDE</base>
+        <trans>Enter any file exclusions. Example: [ home/e-smith/files/ibays/ibayname/files/document.doc ]. One entry per line. Wildcards * and ? are valid.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_PRUNE</base>
+        <trans>Enter any directory tree to prune and not include in the backup. Example: [ home/e-smith/files/ibays/ibayname ]. One entry per line. Wildcards * and ? valid.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_TARGET</base>
+        <trans><![CDATA[ <P>Valid targets are an attached local drive or network share.</P> <P>If backing up to an attached local drive, enter the target mount point of your drive. Example: [/media/usbdisk]. Leave the username and password fields blank.</P> <P>If backing up to a network share, enter the target in UNC format. Example: [//computername/sharename]. In addition you must enter a valid username/password that is a local account on the target with full access rights to the share.</P> ]]></trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_VFSTYPE</base>
+        <trans>Three file systems are supported. [ext3] for backup to local attached disk. [smbfs] for backup to Windows workstation and SME Server network shares. [cifs] for backup to Microsoft Windows Server. Note if using cifs, target entry above must use IP address. Example: [//10.1.1.1/sharename].</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_SLICE</base>
+        <trans>Enter the backup volume segment slices in megabytes. As an example to create 650MB volume segments for copying to CDR/RW you would enter [ 650 ]. This would create in the target files of the following format: job.yyyy.mm.dd.1.dar, job.yyyy.mm.dd.2.dar, etcetera. Note the maximum segment size is 2000MB. Total backup job size is limited only by available target free space.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_COMPRESSION</base>
+        <trans>Enter the compression level from 0 (none) to 9 (maximum). No compression dramitcally improves backup speed.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_U_P</base>
+        <trans>If backing up to a network share, enter a valid username/password that is a local account on the target with full access rights to the share. Leave the username and password blank if backing up to an attached local drive.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_EXPIRY</base>
+        <trans>Enter a backup expiry time. This will keep backups on the target for n days. Choosing 0 means backups are overwritten every day.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_VERBOSE</base>
+        <trans>Verbose option sets the output detail. On for full file-by-file listing and log file generated. Off for summary details only and no log file generated. Note if enabled size of output files is related to size of backup job and therefore can become quite large! Scheduled jobs will receive an e-mail to admin of job details.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_BACKUP_DAY</base>
+        <trans>Enter the day you would like this backup to occur. Leave manual for unscheduled manual use.</trans>
+    </entry>
+    <entry>
+        <base>DESCRIPTION_BACKUP_TIME</base>
+        <trans>Enter the time you would like this backup to occur in 24 hr (hh:mm) format.</trans>
+    </entry>
+</lexicon>
